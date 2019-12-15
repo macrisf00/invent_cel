@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Caracteristica;
+use App\Producto;
 
-class caracteristicaController extends Controller
+class productoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class caracteristicaController extends Controller
      */
     public function index()
     {
-        $caracteristicas = DB::table('t004_caracteristicas')
+        $productos = DB::table('t003_productos as p')
                     //->join('tb_municipio','c.muni_codi','=','tb_municipio.muni_codi')
-                    ->select('f004_id_atributo','f004_descripcion')
+                    ->select('p.f003_imei','p.f003_referencia','p.f003_precio_compra','p.f003_precio_venta','p.f003_iva','p.f003_descuento')
                     ->paginate(10); //pagunacion
-        return view('caracteristica.index', compact('caracteristicas'));
+        return view('producto.index', compact('productos'));
     }
 
     /**
@@ -29,9 +29,7 @@ class caracteristicaController extends Controller
      */
     public function create()
     {
-        //$municipios = Municipio::orderBy('muni_nomb')->get();
-        return view('caracteristica.create');
-        //return view('caratereristia.create',compact('municipios'));
+        return view('producto.create');
     }
 
     /**
@@ -42,11 +40,16 @@ class caracteristicaController extends Controller
      */
     public function store(Request $request)
     {
-        $caracteristica = new Caracteristica;
+        $producto = new Producto;
         //$flight->name = $request->name
-        $caracteristica->f004_descripcion = $request->f004_descripcion;
-        $caracteristica->save();
-        return redirect()->route('caracteristica.index')->with('status','guardado');
+        $producto->f003_imei = $request->f003_imei;
+        $producto->f003_referencia = $request->f003_referencia;
+        $producto->f003_precio_compra = $request->f003_precio_compra;
+        $producto->f003_precio_venta = $request->f003_precio_venta;
+        $producto->f003_iva = $request->f003_iva;
+        $producto->f003_descuento = $request->f003_descuento;
+        $producto->save();
+        return redirect()->route('producto.index')->with('status','guardado');
     }
 
     /**
@@ -68,8 +71,8 @@ class caracteristicaController extends Controller
      */
     public function edit($id)
     {
-        $caracteristica = Caracteristica::findOrFail($id);
-        return view('caracteristica.edit', compact('caracteristica'));
+        $producto = Producto::findOrFail($id);
+        return view('producto.edit', compact('producto'));
     }
 
     /**
@@ -81,10 +84,10 @@ class caracteristicaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $caracteristica = Caracteristica::findOrFail($id);
-        $caracteristica->fill($request->all());
-        $caracteristica->save();
-        return redirect()->route('caracteristica.index')->with('status','actualizado');
+        $producto = Producto::findOrFail($id);
+        $producto->fill($request->all());
+        $producto->save();
+        return redirect()->route('producto.index')->with('status','actualizado');
     }
 
     /**
@@ -95,8 +98,8 @@ class caracteristicaController extends Controller
      */
     public function destroy($id)
     {
-        $caracteristica = Caracteristica::findOrFail($id);
-        $caracteristica->delete();
-        return redirect()->route('caracteristica.index')->with('status','eliminado');
+        $producto = Producto::findOrFail($id);
+        $producto->delete();
+        return redirect()->route('producto.index')->with('status','eliminado');
     }
 }
