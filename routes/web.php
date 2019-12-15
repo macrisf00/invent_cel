@@ -17,5 +17,10 @@ Route::get('/', function () {
 
 Route::resource('comuna', 'ComunaController');
 Auth::routes();
+Route::resource('caracteristica', 'caracteristicaController');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -18,18 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <title>M2GTI- @yield('title')</title>
-
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md  navbar-dark bg-primary ">
-            
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-            <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -53,23 +49,11 @@
                                 </li>
                             @endif
                         @else
-                            <ul class="nav">
-                                <li class="nav-item">
-                                <a class="nav-link active" href="{{route('comuna.index')}}">Comuna</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">Municipios</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">Departamentos</a>
-                                </li>                            
-                            </ul>
-
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" 
-                                    aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>                       
+                                </a>
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -87,16 +71,10 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <div style="background-color:#333; color:#9d9d9d; margin-top:5px">
-			    <h1 class="nav navbar-nav">@yield('title2')</h1>
-		    </div>
+
         <main class="py-4">
             @yield('content')
         </main>
-        </div>
     </div>
-
-    
 </body>
 </html>
