@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::resource('producto', 'productoController');
 Route::resource('caracteristica', 'caracteristicaController');
 Route::resource('detalleProducto', 'detalleProductoController');
+Route::resource('local', 'localController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
