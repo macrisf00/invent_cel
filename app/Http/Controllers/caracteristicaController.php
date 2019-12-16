@@ -42,6 +42,10 @@ class caracteristicaController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'comu_nomb'=>'f004_descripcion|min:2'
+        ]);
+
         $caracteristica = new Caracteristica;
         //$flight->name = $request->name
         $caracteristica->f004_descripcion = $request->f004_descripcion;

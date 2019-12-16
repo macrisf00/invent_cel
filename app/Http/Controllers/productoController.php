@@ -40,6 +40,13 @@ class productoController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'f003_imei'=>'required|min:5',
+            'f003_referencia'=>'required'
+            
+
+        ]);
+
         $producto = new Producto;
         //$flight->name = $request->name
         $producto->f003_imei = $request->f003_imei;
