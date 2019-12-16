@@ -44,6 +44,7 @@ class productoController extends Controller
             'f003_imei'=>'required|min:5',
             'f003_referencia'=>'required'
             
+            
 
         ]);
 

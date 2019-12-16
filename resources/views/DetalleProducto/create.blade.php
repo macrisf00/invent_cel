@@ -32,7 +32,8 @@
 									</option>
 							@endforeach
 						</select>
-						{{$errors->first('f005_imei')}}
+						<small id="detalleProductolHelp" class="form-text text-muted">
+						{!! $errors->first('f005_imei', '<div class="alert alert-danger" role="alert">:message</div>')!!}</small>
 					</div>
 
 					<div class="form-group">
@@ -45,14 +46,16 @@
 									</option>
 							@endforeach
 						</select>
-						{{$errors->first('f005_id_atributo')}}
+						<small id="detalleProductolHelp" class="form-text text-muted">
+							{!! $errors->first('f005_id_atributo', '<div class="alert alert-danger" role="alert">:message</div>')!!}</small>
 					</div>
 					
 
                     <div class="form-group">
 						<label for="f005_valor">Valor</label>
 						<input type="text" class="form-control" name="f005_valor" id="f005_valor" value ={{old('f005_valor')}}>
-						<small id="detalleProductolHelp" class="form-text text-muted">{{$errors->first('f005_valor')}}</small>
+						<small id="detalleProductolHelp" class="form-text text-muted">
+						{!! $errors->first('f005_valor', '<div class="alert alert-danger" role="alert">:message</div>')!!}</small>
 					</div>
 					
 					<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Grabar </button>				

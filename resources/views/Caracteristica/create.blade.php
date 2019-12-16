@@ -9,11 +9,13 @@
 	<div class="row" >
 	<div class="col-sm">
 		<div class="card" style="margin-top: 10px;">
+			{{-- 
 			@if($errors->any())
 				@foreach($errors->all() as $error)
 					{{ $error }}
 				@endforeach
 			@endif
+			--}}
 				
 			<div class="card-body">
 				
@@ -22,7 +24,9 @@
 					<div class="form-group">
 						<label for="caracteristica">Caracteristica</label>
 						<input type="text" class="form-control" name="f004_descripcion" id="f004_descripcion" value= "{{old('f004_descripcion')}}">
-						{!! $errors->first('f004_descripcion', '<div class="alert alert-danger" role="alert">:message</div>')!!}
+						<small id="caracteristicalHelp" class="form-text text-muted">
+							{!! $errors->first('f004_descripcion', '<div class="alert alert-danger" role="alert">:message</div>')!!}</small>
+
 					</div>
 					
 					<button type="submit" class="btn btn-primary btn-xs fa fa-save" style="margin-left: 10px"> Grabar </button>				
