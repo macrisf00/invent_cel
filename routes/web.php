@@ -21,6 +21,8 @@ Route::resource('detalleProducto', 'detalleProductoController');
 Route::resource('tipoUsuario', 'tipoUsuarioController');
 Route::resource('tipoDocumento', 'tipoDocumentoController');
 Route::resource('tipoTelefono', 'tipoTelefonoController');
+Route::resource('usuario', 'usuarioController');
+
 
 Route::resource('movimiento','movimientoController');
 Route::resource('local', 'localController');

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Invent_cel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -37,7 +37,8 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar navbar-dark bg-dark">
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -49,6 +50,22 @@
                                 </li>
                             @endif
                         @else
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{route('home')}}">Inicio</a>
+                              </li>
+                            <li class="nav-item">
+                              <a class="nav-link active" href="{{route('producto.index')}}">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{route('local.index')}}">Locales</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{route('movimiento.index')}}">Movimientos</a>
+                            </li>
+                        </ul>
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

@@ -79,16 +79,17 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="navbar navbar-dark bg-dark">
                 <div class="title m-b-md">
-                    Laravel
+                    INVENT_CEL
+                    
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Productos</a>
-                    <a href="https://laracasts.com">Usuarios</a>
-                    <a href="https://laravel-news.com">Locales</a>
-                    <a href="https://blog.laravel.com">Movimientos</a>
+                    <a href="{{route('producto.index')}}">Productos</a>
+                    <a href="{{route('movimiento.index')}}">Movimientos</a>
+                    <a href="{{route('tipoUsuario.index')}}">Tipos Usuarios</a>
+                    <a href="{{route('tipoTelefono.index')}}">Tipos Telefono</a>
                     
                 </div>
             </div>

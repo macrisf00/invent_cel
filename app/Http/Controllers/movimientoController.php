@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\DB;
 use App\Movimiento;
+use App\Usuarios;
 
 class movimientoController extends Controller
 {
@@ -22,9 +23,9 @@ class movimientoController extends Controller
         ->join('t008_usuarios','m.f002_id_proveedor','=','t008_usuarios.f008_id_usuario')
         ->join('t010_locales','m.f002_id_local_e','=','t010_locales.f010_id_local')
         ->join('t010_locales','m.f002_id_local_s','=','t010_locales.f010_id_local')
-                    ->select('f004_id_movto','f002_imei','f002_fecha_entrada','f002_id_asesor_e','f002_id_local_e','f002_id_proveedor',
-                    'f002_fecha_salida','f002_id_asesor_s','f002_id_local_s')
-                    ->paginate(10); //pagunacion
+        ->select('f002_id_movto','f002_imei','f002_fecha_entrada','f002_id_asesor_e','f002_id_local_e','f002_id_proveedor',
+                 'f002_fecha_salida','f002_id_asesor_s','f002_id_local_s')
+        ->paginate(10); //pagunacion
         return view('movimiento.index', compact('movimientos'));
     }
 
