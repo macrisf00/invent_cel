@@ -18,8 +18,14 @@ Route::get('/', function () {
 Route::resource('producto', 'productoController');
 Route::resource('caracteristica', 'caracteristicaController');
 Route::resource('detalleProducto', 'detalleProductoController');
-Route::resource('local', 'localController');
+Route::resource('tipoUsuario', 'tipoUsuarioController');
+Route::resource('tipoDocumento', 'tipoDocumentoController');
+Route::resource('tipoTelefono', 'tipoTelefonoController');
 
+Route::resource('movimiento','movimientoController');
+Route::resource('local', 'localController');
+Route::resource('rol', 'rolController');
+Route::resource('usuarioRol', 'usuarioRolController');
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
